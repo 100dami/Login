@@ -14,14 +14,18 @@ app.listen(PORT, function (){
     console.log("Example app listening on port", PORT);
 });*/
 
+// routes (라우터?)
 const indexRoute = require("./routes/index");
 
-app.set("view",__dimame+"/views");
+// 뷰엔진 설정
+app.set("views",__dirname+"/views");
 app.set("view engine", "ejs");
-app.use(express.static(__dimame+"/public"));
+app.use(express.static(__dirname+"/public")); // 절대경로
 
+// use routes (라우터의 사용)?
 app.use("/", indexRoute);
 
+// listen
 app.listen(PORT,function(){
     console.log("Example app listening on port", PORT);
 });
