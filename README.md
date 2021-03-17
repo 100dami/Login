@@ -22,6 +22,9 @@
 ===
 ## Syntax
 
+### process.env.PORT ||3000;
+> process.env라른 객체에 port라는 설정이 있다면 그 속성을 사용하고 없다면 3000을 사용한다는 뜻
+
 ### next()
 ``` 미들웨어의 흐름제어 ```
 > 미들웨어의 마지막에서 명시적으로 호출해주어야 <br>
@@ -37,3 +40,47 @@
 app.use(express.static(__dirname+"/public"));
 ```
 => public 디렉토리에 포함된 파일을 로드할 수 있음
+
+### => (Arrow function)
+> ES6 문법
+```js
+/// 매개변수가 없는 경우
+var foo = () => console.log('bar');
+foo(); // bar
+
+// 매개변수가 하나인 경우
+var foo = x => x;
+foo('bar'); // bar
+
+// 매개변수가 여려개인 경우
+var foo = (a, b) => a + b; // 간단하게 한줄로 표현할 땐 "{}" 없이 값이 반환됩니다.
+foo(1, 2); // 3
+
+var foo = (a, b) => { return a + b }; 
+foo(1, 2); // 3
+
+var foo = (a, b) => { a + b }; // "{}"를 사용했는데 return이 없을 때 
+foo(1, 2); // undefined
+
+var foo = (a, b) => { // 여러줄 썼을 때
+	var c = 3;
+	return a + b + c;
+}
+foo(1, 2, 3) // 6
+/*
+"{}"를 사용하면 값을 반환할 때 return을 사용해야합니다.
+"{}"를 사용하지 않으면 undefied를 반환합니다.
+"{}"을 사용할 때는 여러줄을 썼을 때 사용합니다.
+*/
+
+// 객체를 반환할 때
+var foo = () => ( { a: 1, b: 2, c: 3 } );
+foo(); // { a: 1, b: 2, c: 3 };
+```
+###### => {return a+b}?
+> 의미 : => 뒤 a + b 값을 return 해라!!
+
+### res.render('index'));?
+```EJS로 데이터를 전송하는 역할을 하는 함수```
+> = res.render("ejs파일경로", {데이터이름표: 전송할데이터});
+
